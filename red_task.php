@@ -44,7 +44,19 @@ require_once ('session_verify.php');
              assigned<input type="radio" name="status" <?php if($row['status']==3) echo"checked"?> value="3"><td>
           <tr>
           <tr>
-              <td>assigned_id:<td><td><input type="text" name="assigned_id" value="<?php echo $row['assigned_id'] ?>"><td>
+              <td>assigned_id:<td><td>
+           <?php
+           $query4 ="SELECT user_name, id FROM Users ";
+         $result4 = mysqli_query($con_str, $query4) or die("Ошибка " . mysqli_error($con_str));
+         ?>
+
+                   <!-- <form action="" method="POST"> -->
+                   <select  name="assigned_id">
+                     <?php while ($row4 = mysqli_fetch_array($result4)): ?>
+                       <option value="<?php echo $row4['id'] ?>"><?php echo $row4['user_name'] ?></option>
+                       <?php endwhile ?>
+                   </select>
+                <td>
           <tr>
           <tr>
               <td>file:<td><td><input type="text" name="file" value="<?php echo $row['file'] ?>"><td>

@@ -22,7 +22,7 @@ require_once ('session_verify.php');
 <?php
 $select7 = $_POST['id'];
 $select_2 = $_POST['id'];
-var_dump($_POST);
+//var_dump($_POST);
 $t = $_POST['tags'];
 $tags = explode(",", $t);
 $query = "SELECT name FROM tags";
@@ -41,7 +41,7 @@ $tag2[$i] = $row['name'];
 <?php endwhile; ?>
 <?php
 //var_dump($tag2);
-var_dump($tags); //теги введенные
+//var_dump($tags); //теги введенные
 $tags22 = array_diff ($tags, $tag2);//var_dump($tags22);
 $tags77 = implode($tags22);
 //var_dump($tags77);
@@ -57,7 +57,7 @@ $result = mysqli_query($con_str, $query) or die("Ошибка " . mysqli_error($
 ?>
 <?php while ($row = mysqli_fetch_array($result)):?>
   <?php
-  echo $row['id'];
+//  echo $row['id'];
   ?>
 <?php
 $sel = $row['id'];
@@ -82,6 +82,6 @@ $create_id = $_POST['creater_id'];
 input_function($task_id,$name,$desc,$type,$status,$assigned_id,$file,$project_id,$create_id);
 ?>
     <?php
-//header('location: /project.local');
+header('location: /project.local');
      ?>
 </body>

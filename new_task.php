@@ -1,3 +1,5 @@
+<?php
+require_once('session_verify.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,8 +7,16 @@
     <title></title>
   </head>
   <body>
+    <?php
+    require_once('connect.php');
+    require_once('nav.php');
+    ?>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <?php
+  //  var_dump($_SESSION);
+    $creator_id=$_SESSION['id'];
+    ?>
       <body>
         <table>
           <tr>
@@ -23,7 +33,20 @@
       <input type='radio' name='status' value='2'>in processes<input type='radio'name='status'value='3'>end<td>
           <tr>
           <tr>
-              <td>assigned_id:<td><td><input type="text" name="assigned_id"><td>
+              <td>assigned_id:<td><td>
+                <?php
+                $query ="SELECT user_name, id FROM Users ";
+              $result = mysqli_query($con_str, $query) or die("Ошибка " . mysqli_error($con_str));
+              ?>
+
+                        <!-- <form action="" method="POST"> -->
+                        <select  name="assigned_id">
+                          <?php while ($row = mysqli_fetch_array($result)): ?>
+                            <option value="<?php echo $row['id'] ?>"><?php echo $row['user_name'] ?></option>
+                            <?php endwhile ?>
+                        </select>
+                        <!-- </form> -->
+                        <td>
           <tr>
           <tr>
               <td>file:<td><td><input type="text" name="file"><td>
@@ -32,7 +55,7 @@
                <td><td><td><input type="hidden" name="project_id" value="<?php echo $_GET['project_id'] ?>"><td>
           <tr>
           <tr>
-                <td>creator_id:<td><td><input type="text" name="creater_id"><td>
+                <td><td><td><input type="hidden" name="creater_id" value="<?php echo $creator_id; ?>"><td>
           <tr>
           <tr>
           <td><td><td> <input type="submit" value = "create" name ""><td>

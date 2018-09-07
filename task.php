@@ -18,6 +18,8 @@ require_once('session_verify.php');
     <?php
      $select = $_GET['id'];
       require_once('connect.php');
+      ?>
+      <?php
     $query ="SELECT * FROM tickets WHERE id = '$select' ";
     $result = mysqli_query($con_str, $query) or die("Ошибка " . mysqli_error($con_str));
     ?>
