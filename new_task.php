@@ -10,7 +10,7 @@ require_once('session_verify.php'); ?>
     <?php
     require_once('connect.php');
     require_once('nav.php');
-    //require_once('function_select.php');
+    require_once('function_select.php');
     ?>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -36,16 +36,10 @@ require_once('session_verify.php'); ?>
           <tr>
       <td>assigned_id:<td>
           <td>
-      <?php
-      $query4 ="SELECT user_name, id FROM Users ";
-      $result4 = mysqli_query($con_str, $query4) or die("Ошибка " . mysqli_error($con_str));
-      ?>
-      <select  name="assigned_id">
-      <?php while ($row4 = mysqli_fetch_array($result4)): ?>
-      <option value="<?php echo $row4['id'] ?>"><?php echo $row4['user_name'] ?></option>
-      <?php endwhile ?>
-      </select>
-          <td>
+            <select  name="assigned_id">
+            <?php echo select(); ?>
+            </select>
+          </td>
           <tr>
           <tr>
               <td>file:<td><td><input type="text" name="file"><td>
