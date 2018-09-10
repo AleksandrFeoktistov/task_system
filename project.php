@@ -40,7 +40,7 @@ require_once ('session_verify.php');
   </div>
 </div>
 </div>
-  <?php  $query ="SELECT tickets.*, Users.Login FROM tickets JOIN Users ON Users.id = tickets.assigned_id  WHERE project_id = 48;";
+  <?php  $query ="SELECT tickets.*, Users.Login FROM tickets JOIN Users ON Users.id = tickets.assigned_id  WHERE project_id = $select;";
     $result = mysqli_query($con_str, $query) or die("Ошибка " . mysqli_error($con_str));
     ?>
     <p>

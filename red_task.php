@@ -49,13 +49,11 @@ require_once ('session_verify.php');
            $query4 ="SELECT user_name, id FROM Users ";
          $result4 = mysqli_query($con_str, $query4) or die("Ошибка " . mysqli_error($con_str));
          ?>
-
-                   <!-- <form action="" method="POST"> -->
-                   <select  name="assigned_id">
-                     <?php while ($row4 = mysqli_fetch_array($result4)): ?>
-                       <option value="<?php echo $row4['id'] ?>"><?php echo $row4['user_name'] ?></option>
-                       <?php endwhile ?>
-                   </select>
+                  <select  name="assigned_id">
+                  <?php while ($row4 = mysqli_fetch_array(select())): ?>
+                  <option value="<?php echo $row4['id'] ?>"><?php echo $row4['user_name'] ?></option>
+                  <?php endwhile ?>
+                  </select>
                 <td>
           <tr>
           <tr>
