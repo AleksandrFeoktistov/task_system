@@ -12,7 +12,7 @@ require_once ('session_verify.php');
   <body>
       <?php include ('nav.php');?>
     <?php
-   $select = $_GET['id'];
+    $select = $_GET['id'];
     require_once ('connect.php');
     require_once('function_select.php');
    $query ="SELECT * FROM tickets WHERE id = '$select' ";
@@ -51,7 +51,7 @@ require_once ('session_verify.php');
               $result4 = mysqli_query($con_str, $query4) or die("Ошибка " . mysqli_error($con_str));
               ?>
                <select  name="assigned_id">
-               <?php echo select(); ?>
+               <?php echo select_HTML(); ?>
                </select>
           <td>
           <tr>

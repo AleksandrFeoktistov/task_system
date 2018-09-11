@@ -37,7 +37,7 @@ require_once('session_verify.php'); ?>
       <td>assigned_id:<td>
           <td>
             <select  name="assigned_id">
-            <?php echo select(); ?>
+            <?php echo select_HTML(); ?>
             </select>
           </td>
           <tr>
