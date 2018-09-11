@@ -46,10 +46,6 @@ require_once ('session_verify.php');
           <tr>
           <tr>
           <td>assigned_id:<td><td>
-              <?php
-              $query4 ="SELECT user_name, id FROM Users ";
-              $result4 = mysqli_query($con_str, $query4) or die("Ошибка " . mysqli_error($con_str));
-              ?>
                <select  name="assigned_id">
                <?php echo select_HTML(); ?>
                </select>
